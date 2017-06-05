@@ -68,14 +68,6 @@ angular.module('app.controllers', [])
         };
         processGeoQuery();
     }
-
-    //FIX ME
-    $scope.b = {
-        saved: function(value){
-            console.log(value);
-            return true;
-        }
-    };
     
     // ui helper for parsing coordinate strings
     $scope.getCoords = function(coordString){
