@@ -1,0 +1,33 @@
+<ion-view title="Results" cache-view="false" id="page10">
+  <ion-content padding="false" scroll="false" class="has-header">
+    <ion-scroll id="results-container7" class="top-container-with-button">
+      <div class="list card" id="results-card22" ng-repeat="b in buoys">
+        <ion-item class="item-icon-left positive" id="results-list-item11" ng-init="coords = getCoords(b.geoJson.S);">
+          <i class="icon ion-ionic"></i>
+          <b>{{b.STN.S}}</b>
+          <br>LAT {{coords.coordinates[0]}}
+          <br>LONG {{coords.coordinates[1]}}</ion-item>
+        <div id="results-container14" ng-show="!noResults &amp;&amp; !buoys.length" class="ng-hide creator-container"></div>
+        <div class="item item-body" id="results-list-item-container7">
+          <div id="results-markdown20" style="text-align:center;" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">Updated: {{ b.DATE.S | date:'MM/dd/yyyy @ h:mma'}}</p>
+          </div>
+          <div id="results-markdown21" ng-if="value.S != 'MM' &amp;&amp; key != 'geoJson' &amp;&amp; key != 'DATE' &amp;&amp; key != 'hashKey' &amp;&amp; key != 'rangeKey' &amp;&amp; key != 'geohash' &amp;&amp; key != 'saved' &amp;&amp; key != 'fbId' &amp;&amp; key != 'dateepoch' &amp;&amp; key != 'STN' &amp;&amp; key != 'active'"
+            ng-repeat="(key, value) in b" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">{{key}} {{value.S}}</p>
+          </div>
+        </div>
+        <button id="results-button14" ng-click="toggleSavedBuoy(b)" ng-class="{'button button-positive button-outline button-full': !b.saved, 'button button-positive  button-full':b.saved}" style="border-radius:0px 0px 0px 0px;" class="button button-positive button-full">
+          <b ng-if="b.saved">Saved</b>
+          <b ng-if="!b.saved">Save</b>
+        </button>
+      </div>
+      <div id="results-markdown25" ng-if="!noResults &amp;&amp; !buoys.length" style="text-align:center;" class="show-list-numbers-and-dots card">
+        <h5>No buoys found in search radius</h5>
+      </div>
+    </ion-scroll>
+    <div id="results-container13" class="bottom-form">
+      <a ui-sref="findBuoys({&quot;name&quot;:&quot;&quot;})" id="results-button19" class="button button-positive button-full icon-right ion-android-locate">Find Buoys</a>
+    </div>
+  </ion-content>
+</ion-view>

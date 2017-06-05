@@ -1,0 +1,32 @@
+<ion-view title="Find Buoys" id="page9">
+  <ion-content padding="false" scroll="false" class="has-header">
+    <ion-scroll id="findBuoys-container5" class="top-container">
+      <form id="findBuoys-form5" class="list">
+        <ion-toggle toggle-class="toggle-positive" id="findBuoys-toggle4" ng-change="toggleLocation(toggled)" ng-model="toggled">Use Current Location</ion-toggle>
+        <label class="item item-input" id="findBuoys-input10">
+          <span class="input-label">Latitude</span>
+          <input type="number" placeholder="0.00" ng-model="queryInfo.Lat">
+        </label>
+        <label class="item item-input" id="findBuoys-input11">
+          <span class="input-label">Longitude</span>
+          <input type="number" placeholder="0.00" ng-model="queryInfo.Long">
+        </label>
+        <ion-item class="range range-positive" id="findBuoys-range1">Radius
+          <input type="range" value="100" min="1" max="161.1" step="1" name="radius" ng-model="queryInfo.Radius">
+        </ion-item>
+        <div id="findBuoys-markdown14" class="show-list-numbers-and-dots card padding">
+          <h5>Miles: {{queryInfo.Radius * 0.621371 | number:0}}</h5>
+
+          <h5>Kilometers: {{queryInfo.Radius}}</h5>
+        </div>
+      </form>
+      <div id="findBuoys-markdown24" ng-show="$root.error" class="show-list-numbers-and-dots error-box">
+        <p style="color:#000000;">{{error}}</p>
+      </div>
+    </ion-scroll>
+    <div id="findBuoys-container6" class="bottom-form">
+      <a ui-sref="results({&quot;Lat&quot;:&quot;&quot;+queryInfo.Lat+&quot;&quot;,&quot;Long&quot;:&quot;&quot;+queryInfo.Long+&quot;&quot;,&quot;Radius&quot;:&quot;&quot;+queryInfo.Radius+&quot;&quot;})" id="findBuoys-button17" style="border-radius:0px 0px 0px 0px;"
+        class="button button-positive button-full icon-right ion-android-search">Find</a>
+    </div>
+  </ion-content>
+</ion-view>

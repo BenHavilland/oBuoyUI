@@ -1,0 +1,41 @@
+<ion-view title="My Buoys" cache-view="false" id="page11">
+  <ion-content padding="false" scroll="false" class="has-header">
+    <ion-scroll id="myBuoys-container9" class="top-container-with-button">
+      <form id="myBuoys-form7" class="list">
+        <div id="myBuoys-markdown13" ng-if="!noResults &amp;&amp; !savedBuoys.length" style="text-align:center;" class="show-list-numbers-and-dots card">
+          <h5>You don't have any saved buoys.</h5>
+        </div>
+        <div class="list card" id="myBuoys-card21" ng-repeat="b in savedBuoys">
+          <ion-item class="item-icon-left positive" id="myBuoys-list-item8">
+            <i class="icon ion-ionic"></i>
+            <b>{{b.name}}</b>
+            <br>LAT&nbsp; {{b.liveData.coordinates.coordinates[0]}}
+            <br>LONG {{b.liveData.coordinates.coordinates[1]}}</ion-item>
+          <div ng-if="!b.liveData" class="creator-container text-center">
+            <ion-spinner></ion-spinner>
+          </div>
+          <ion-list id="myBuoys-list5">
+            <div class="item item-body" id="myBuoys-list-item-container6" ng-if="b.liveData">
+              <div id="myBuoys-markdown10" ng-if="b.liveData.DATE" class="show-list-numbers-and-dots">
+                <p style="margin-top:0px;color:#000000;">Updated: {{ b.liveData.DATE | date:'MM/dd/yyyy @ h:mma'}}</p>
+              </div>
+              <div id="myBuoys-markdown22" ng-repeat="(key, value) in b.liveData" ng-if="value != 'MM' &amp;&amp; key != 'geoJson' &amp;&amp; key != 'DATE' &amp;&amp; key != 'hashKey' &amp;&amp; key != 'rangeKey' &amp;&amp; key != 'geohash' &amp;&amp; key != 'saved' &amp;&amp; key != 'fbId' &amp;&amp; key != 'dateepoch' &amp;&amp; key != 'STN' &amp;&amp; key != 'active' &amp;&amp; key != 'coordinates'"
+                class="show-list-numbers-and-dots">
+                <p style="margin-top:0px;color:#000000;">{{key}} {{value}}</p>
+              </div>
+            </div>
+            <ion-item class="item-icon-left item-icon-right positive" id="myBuoys-list-item10">
+              <i class="icon ion-ios-arrow-left"></i>
+              <span class="item-note">Swipe to remove</span>
+              <i class="icon ion-ios-trash-outline icon-accessory"></i>
+              <ion-option-button class="button-dark" ng-click="removeBuoy(b)">remove</ion-option-button>
+            </ion-item>
+          </ion-list>
+        </div>
+      </form>
+    </ion-scroll>
+    <div id="myBuoys-container10" class="bottom-form">
+      <a ui-sref="findBuoys({&quot;name&quot;:&quot;&quot;})" id="myBuoys-button20" class="button button-positive button-full icon-right ion-android-locate">Find Buoys</a>
+    </div>
+  </ion-content>
+</ion-view>

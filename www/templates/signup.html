@@ -1,0 +1,25 @@
+<ion-view title="Signup" id="page5">
+  <ion-content padding="true" style="background: url(img/k5ZV69aITc6EVGP9SMxF_loginbuoy.jpg) no-repeat center;background-size:cover;" class="has-header">
+    <div id="signup-markdown4" ng-show="error" class="show-list-numbers-and-dots error-box">
+      <p style="color:#000000;">{{error}}</p>
+    </div>
+    <form id="signup-form1" class="list center-form">
+      <ion-list id="signup-list1">
+        <label class="item item-input" id="signup-input1" name="name">
+          <span class="input-label">Name</span>
+          <input type="text" placeholder="" ng-model="data.name">
+        </label>
+        <label class="item item-input" id="signup-input2" name="email">
+          <span class="input-label">Email</span>
+          <input type="email" placeholder="" ng-model="data.email">
+        </label>
+        <label class="item item-input" id="signup-input3" name="password">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="" ng-model="data.password">
+        </label>
+      </ion-list>
+      <div class="spacer" style="height: 40px;"></div>
+      <button id="signup-button1" ng-click="signup()" class="button button-stable button-block overla">Sign up</button>
+    </form>
+  </ion-content>
+</ion-view>

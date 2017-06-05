@@ -1,0 +1,22 @@
+<ion-view title="Login" hide-back-button="true" id="page6">
+  <ion-content padding="true" style="background: url(img/8ukil4e7Tb6l34QsTWsp_loginbuoy.jpg) no-repeat center;background-size:cover;" scroll="false" class="has-header">
+    <form id="login-form2" class="list center-form">
+      <ion-list id="login-list2">
+        <label class="item item-input" id="login-input4">
+          <span class="input-label">Email</span>
+          <input type="email" placeholder="" ng-model="data.email">
+        </label>
+        <label class="item item-input" id="login-input5">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="" ng-model="data.password">
+        </label>
+      </ion-list>
+      <div class="spacer" style="height: 40px;"></div>
+      <button id="login-button2" ng-click="login()" class="button button-stable button-block">Log in</button>
+      <a ui-sref="signup()" id="login-button8" ng-click="signup()" class="button button-light button-block">Create Account</a>
+    </form>
+    <div id="login-markdown8" ng-show="error" class="show-list-numbers-and-dots error-box">
+      <p style="color:#000000;">{{error}}</p>
+    </div>
+  </ion-content>
+</ion-view>
